@@ -18,10 +18,12 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 public class WebSegurancaConfig extends WebSecurityConfigurerAdapter {
 
     @Override
+    @Bean
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
     }
     @Override
+    @Bean
     protected void configure(HttpSecurity web) throws Exception {
         web
                 .httpBasic()
