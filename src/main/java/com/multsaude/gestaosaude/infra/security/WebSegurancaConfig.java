@@ -1,4 +1,6 @@
+/*
 package com.multsaude.gestaosaude.infra.security;
+
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -10,7 +12,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
-@EnableWebSecurity
 public class WebSegurancaConfig extends WebSecurityConfigurerAdapter {
 
     @Override
@@ -32,4 +33,4 @@ public class WebSegurancaConfig extends WebSecurityConfigurerAdapter {
     protected PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-}
+}*/

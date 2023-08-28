@@ -1,3 +1,5 @@
+/*
+
 package com.multsaude.gestaosaude.dominio.login;
 
 import lombok.Data;
@@ -6,18 +8,18 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.util.Collection;
-import java.util.UUID;
 
-@Entity
+
 @Table(name = "tb_login")
 @Data
+@Entity
 public class Login  implements UserDetails {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private UUID userId;
-    @Column(nullable = false, unique = true)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
     private String user;
-    @Column(nullable = false)
+
     private  String pwd;
 
 
@@ -34,6 +36,18 @@ public class Login  implements UserDetails {
     @Override
     public String getUsername() {
         return this.user;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public String getPwd() {
+        return pwd;
     }
 
     @Override
@@ -56,3 +70,4 @@ public class Login  implements UserDetails {
         return true;
     }
 }
+*/
