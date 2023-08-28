@@ -1,5 +1,3 @@
-/*
-
 package com.multsaude.gestaosaude.infra.login;
 
 import com.multsaude.gestaosaude.dominio.login.LoginEntity;
@@ -12,4 +10,4 @@ public interface LoginRepositoryJPA extends JpaRepository<LoginEntity, Long> {
     Optional<LoginEntity> findByUsuario(String username);
 
 }
-*/
+
