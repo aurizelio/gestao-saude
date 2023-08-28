@@ -2,6 +2,10 @@ package com.multsaude.gestaosaude.infra.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -9,27 +13,24 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
 @Configuration
-public class WebSegurancaConfig {
+public class WebSegurancaConfig extends WebSecurityConfigurerAdapter {
 
-    @Bean
-    public InMemoryUserDetailsManager userDetailsService() {
-        UserDetails user1 = User.withUsername("administrador")
-                .password(passwordEncoder().encode("admin123"))
-                .roles("ADMIN")
-                .build();
-        UserDetails user2 = User.withUsername("user2")
-                .password(passwordEncoder().encode("user2Pass"))
-                .roles("USER")
-                .build();
-        UserDetails admin = User.withUsername("admin")
-                .password(passwordEncoder().encode("adminPass"))
-                .roles("ADMIN")
-                .build();
-        return new InMemoryUserDetailsManager(user1, user2, admin);
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+
+    }
+    @Override
+    protected void configure(HttpSecurity web) throws Exception {
+        web
+                .httpBasic()
+                .and()
+                .authorizeHttpRequests()
+                .anyRequest().permitAll();
     }
 
+
     @Bean
-    public PasswordEncoder passwordEncoder() {
+    protected PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 }
