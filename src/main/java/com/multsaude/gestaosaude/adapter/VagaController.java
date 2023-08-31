@@ -27,7 +27,7 @@ public class VagaController {
     public String salcarVaga(VagaDto vaga){
         vaga.setStatus(true);
         service.salvarVaga(vaga);
-        return "home";
+        return "index";
     }
 
     @GetMapping("/listar")
