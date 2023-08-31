@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -15,15 +16,15 @@ public class LoginController {
 
     @GetMapping("/")
     public String Login(){
-        return "login";
+        return "login/home";
     }
 
-    @PostMapping ("/logar")
+    @PostMapping ("login/logar")
     public ModelAndView home(Usuario usuario){
         boolean usuarioSenhaValido = service.verificaUser(usuario.getEmail(),usuario.getSenha());
-        ModelAndView view =  new ModelAndView("login");
+        ModelAndView view =  new ModelAndView("login/home");
         if(usuarioSenhaValido){
-            view = new ModelAndView("home");
+            view = new ModelAndView("index");
             return view;
         }
         return  view;

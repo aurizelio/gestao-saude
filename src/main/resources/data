@@ -1,1 +1,1 @@
-INSERT INTO tb_login (id,senha,usuario)VALUES (2,'admin','321');
+insert into tb_usuario (id,cpf,email,nome,rg,senha,telefone) values(1,'290.000.000-00','teste@teste.com','Fulano Teste','36.000.000-23','123','11-9789693214')
