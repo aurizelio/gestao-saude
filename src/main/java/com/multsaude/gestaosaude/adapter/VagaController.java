@@ -1,6 +1,6 @@
 package com.multsaude.gestaosaude.adapter;
 
-import com.multsaude.gestaosaude.aplicacao.vaga.SalvarServiceImpl;
+import com.multsaude.gestaosaude.aplicacao.vaga.VagaServiceImpl;
 import com.multsaude.gestaosaude.dominio.vaga.VagaDto;
 import com.multsaude.gestaosaude.infra.login.Vaga;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +17,7 @@ import java.util.List;
 public class VagaController {
 
     @Autowired
-    SalvarServiceImpl service;
+    VagaServiceImpl service;
     @GetMapping("/cadastrar")
     public String cadastrarVaga(){
         return "vaga/cadastrar";
@@ -30,10 +30,10 @@ public class VagaController {
         return "home";
     }
 
-    @GetMapping("/lista-vagas")
+    @GetMapping("/listar")
     public ModelAndView listarVagas(){
         List<Vaga> vagas = service.listarVaga();
-        ModelAndView view = new ModelAndView("lista-vagas");
+        ModelAndView view = new ModelAndView("vaga/listar");
         view.addObject("vagas",vagas);
         return view;
     }

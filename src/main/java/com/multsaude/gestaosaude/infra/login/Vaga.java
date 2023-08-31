@@ -1,11 +1,17 @@
 package com.multsaude.gestaosaude.infra.login;
 
 import com.multsaude.gestaosaude.dominio.vaga.VagaDto;
+import lombok.Builder;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-
+@Data
+@Getter
+@Setter
 @Entity
 public class Vaga {
 
@@ -34,6 +40,9 @@ public class Vaga {
     private String observacao;
 
     private boolean status;
+
+    public Vaga() {
+    }
 
     public Vaga(String descricao, String horario, String plantao, String endereco, String cep, String regiao,
                 String cidade, String estado, String referencia, String paciente, String observacao, boolean status) {

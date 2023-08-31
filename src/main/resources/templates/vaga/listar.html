@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html layout:decorate="~{task/layout}">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Vagas</title>
     <meta charset="utf-8">
@@ -8,43 +8,43 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
+<div class="container-fluid">
+    <nav class="navbar navbar-expand-sm bg-light">
+        <div class="container-fluid">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/vaga/cadastrar">Cadastro vaga</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/vaga/listar">Listar vagas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#atualizar-dados">Atualizar dados</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
-<nav class="navbar navbar-expand-sm bg-light">
-    <div class="container-fluid">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="/cadastro-vaga">Cadastro vaga</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/lista-vagas">Listar vagas</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#atualizar-dados">Atualizar dados</a>
-            </li>
-        </ul>
+        <div>
+            <table class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>Descrição vaga</td>
+                    <td>Horário</td>
+                    <td>Endereço</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="vaga : ${vagas}">
+                    <td th:text="${vaga.id}"></td>
+                    <td th:text="${vaga.descricao}"></td>
+                    <td th:text="${vaga.horario}"></td>
+                    <td th:text="${vaga.endereco}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-</nav>
-
-<div layout:fragment="content">
-    <table class="table table-bordered table-striped">
-        <thead>
-        <tr>
-            <td>ID</td>
-            <td>Descrição vaga</td>
-            <td>Horário</td>
-            <td>Endereço</td>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="vaga : ${vagas}">
-            <td th:text="${vaga.id}"></td>
-            <td th:text="${vaga.descricao}"></td>
-            <td th:text="${vaga.horario}"></td>
-            <td th:text="${vaga.endereco}"></td>
-        </tr>
-        </tbody>
-    </table>
-</div>
-
 </body>
 </html>

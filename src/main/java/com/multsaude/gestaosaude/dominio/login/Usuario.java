@@ -1,5 +1,6 @@
 package com.multsaude.gestaosaude.dominio.login;
 
+import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;

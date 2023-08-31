@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class SalvarServiceImpl implements VagaService {
+public class VagaServiceImpl implements VagaService {
 
     @Autowired
     VagaRepository repository;
