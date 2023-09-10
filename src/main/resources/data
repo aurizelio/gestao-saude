@@ -1,1 +1,3 @@
 insert into tb_usuario (id,cpf,email,nome,rg,senha,telefone) values(1,'290.000.000-00','teste@teste.com','Fulano Teste','36.000.000-23','123','11-9789693214')
+insert into tb_usuario (id,cpf,email,nome,rg,senha,telefone) values(2,'290.000.000-00','francisco@teste.com','Fulano Teste','36.000.000-23','123','11-9789693214')
+insert into tb_usuario (id,cpf,email,nome,rg,senha,telefone) values(3,'290.000.000-00','adilson@teste.com','Adilson','36.000.000-23','123','11-9789693214')
